@@ -1,0 +1,83 @@
+<resources>
+    <string name="app_name">Mi Ciudad</string>
+
+    <string name="banks">Bancos</string>
+    <string name="coffes">Cafés</string>
+    <string name="parks">Parques</string>
+    <string name="restaurants">Restaurantes</string>
+    <string name="shoppings">Malls</string>
+
+    <string name="banks_description">Instituciones Financieras</string>
+    <string name="coffes_description">Locales de Café en Quito</string>
+    <string name="parks_description">Parques al aire libre</string>
+    <string name="restaurants_description">Restaurantes para engordar</string>
+    <string name="shoppings_description">Centros Comerciales con tiendas top</string>
+
+    <string name="banking_1">Banco Internacional</string>
+    <string name="banking_2">Banco Guayaquil</string>
+    <string name="banking_3">Banco del Azuay</string>
+    <string name="banking_4">Banco del Pacífico</string>
+    <string name="banking_5">Banco Produbanco</string>
+    <string name="banking_6">Banco de Pichincha</string>
+    <string name="banking_7">Banco de Machala</string>
+
+    <string name="coffe_1">Café Valdez</string>
+    <string name="coffe_2">Sweet and Coffe</string>
+    <string name="coffe_3">Café Europa</string>
+    <string name="coffe_4">Café Traviesa</string>
+    <string name="coffe_5">La Cafebrería</string>
+    <string name="coffe_6">Dulcería Colonial</string>
+    <string name="coffe_7">Coffee Factory</string>
+
+    <string name="park_1">La Carolina</string>
+    <string name="park_2">La Alameda</string>
+    <string name="park_3">El Ejido</string>
+    <string name="park_4">El Chaquiñan</string>
+    <string name="park_5">El Metropolitano</string>
+    <string name="park_6">Parque Inglés</string>
+    <string name="park_7">El Reservorio</string>
+
+    <string name="restaurant_1">Fridays</string>
+    <string name="restaurant_2">Western</string>
+    <string name="restaurant_3">Lucía</string>
+    <string name="restaurant_4">Malbec</string>
+    <string name="restaurant_5">Chugchucaras</string>
+    <string name="restaurant_6">Segundo Muelle</string>
+    <string name="restaurant_7">Carne Res</string>
+
+    <string name="shopping_1">El Coral</string>
+    <string name="shopping_2">Quicentro</string>
+    <string name="shopping_3">El Portal</string>
+    <string name="shopping_4">Scala</string>
+    <string name="shopping_5">El Jardín</string>
+    <string name="shopping_6">Paseo San Francisco</string>
+    <string name="shopping_7">San Luis</string>
+
+    <string name="item_list_subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultrices congue rutrum.</string>
+    <string name="recommendation_detail_text">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        Praesent ultrices congue rutrum. Phasellus elementum ipsum ac convallis aliquam. Suspendisse
+        eleifend eros a enim faucibus mollis. Nunc placerat, est vitae vestibulum blandit, dolor
+        diam fringilla tellus, eu euismod mauris neque at neque.
+        \n\n
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        Praesent ultrices congue rutrum. Phasellus elementum ipsum ac convallis aliquam. Suspendisse
+        eleifend eros a enim faucibus mollis. Nunc placerat, est vitae vestibulum blandit, dolor
+        diam fringilla tellus, eu euismod mauris neque at neque.
+        \n\n
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        Praesent ultrices congue rutrum. Phasellus elementum ipsum ac convallis aliquam. Suspendisse
+        eleifend eros a enim faucibus mollis. Nunc placerat, est vitae vestibulum blandit, dolor
+        diam fringilla tellus, eu euismod mauris neque at neque.
+        \n\n
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        Praesent ultrices congue rutrum. Phasellus elementum ipsum ac convallis aliquam. Suspendisse
+        eleifend eros a enim faucibus mollis. Nunc placerat, est vitae vestibulum blandit, dolor
+        diam fringilla tellus, eu euismod mauris neque at neque.
+        \n\n
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        Praesent ultrices congue rutrum. Phasellus elementum ipsum ac convallis aliquam. Suspendisse
+        eleifend eros a enim faucibus mollis. Nunc placerat, est vitae vestibulum blandit, dolor
+        diam fringilla tellus, eu euismod mauris neque at neque.
+    </string>
+</resources>
