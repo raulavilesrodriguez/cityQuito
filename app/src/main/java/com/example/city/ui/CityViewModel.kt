@@ -30,7 +30,6 @@ class CityViewModel : ViewModel() {
         _uiState.update {
             it.copy(
                 currentCategory = categoryType,
-                isShowingHomepage = false
             )
         }
     }
@@ -39,18 +38,32 @@ class CityViewModel : ViewModel() {
         _uiState.update {
             it.copy(
                 currentRecommendation = selectedRecommendation,
-                isShowingHomepage = false
+                isShowingHomepage = false,
+                isShowingRecommendations = false
             )
         }
     }
 
-    fun resetHomeScreenStates(){
+    fun resetRecommendationScreenStates(){
         _uiState.update {
             it.copy(
                 currentRecommendation = it.categoryRecommendations[it.currentCategory]?.get(0)
                     ?: LocalRecommendationData.defaultRecommendation,
-                isShowingHomepage = true
+                isShowingHomepage = false,
+                isShowingRecommendations = true
             )
         }
     }
+
+    fun resetCategoriesScreenStates(){
+        _uiState.update {
+            it.copy(
+                currentCategory = CategoryType.Coffes,
+                isShowingHomepage = true,
+                isShowingRecommendations = false
+            )
+        }
+    }
+
+
 }
