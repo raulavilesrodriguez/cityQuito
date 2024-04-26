@@ -80,4 +80,6 @@
         eleifend eros a enim faucibus mollis. Nunc placerat, est vitae vestibulum blandit, dolor
         diam fringilla tellus, eu euismod mauris neque at neque.
     </string>
+
+    <string name="back_button">Retorno</string>
 </resources>

@@ -1,7 +1,9 @@
 package com.example.city.ui
 
 import androidx.lifecycle.ViewModel
+import com.example.city.data.Category
 import com.example.city.data.CategoryType
+import com.example.city.data.LocalCategoryDataProvider
 import com.example.city.data.LocalRecommendationData
 import com.example.city.data.Recommendation
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -20,16 +22,17 @@ class CityViewModel : ViewModel() {
         val categoryRecommendations: Map<CategoryType, List<Recommendation>> =
             LocalRecommendationData.allRecommendations.groupBy { it.category }
         _uiState.value = CityUiState(
+            categoriesList = LocalCategoryDataProvider.allCategories,
             categoryRecommendations = categoryRecommendations,
             currentRecommendation = categoryRecommendations[CategoryType.Coffes]?.get(0)
                 ?: LocalRecommendationData.defaultRecommendation
         )
     }
 
-    fun updateCurrentCategory(categoryType: CategoryType){
+    fun updateCurrentCategory(categoryType: Category){
         _uiState.update {
             it.copy(
-                currentCategory = categoryType,
+                currentCategory = categoryType.category,
             )
         }
     }

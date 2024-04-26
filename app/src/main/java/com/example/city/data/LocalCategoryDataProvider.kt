@@ -4,7 +4,7 @@ import com.example.city.R
 
 object LocalCategoryDataProvider {
 
-    private val allCategories = listOf(
+    val allCategories = listOf(
         Category(
             id = 2L,
             categoryName = R.string.coffes,
@@ -47,6 +47,11 @@ object LocalCategoryDataProvider {
      */
     fun getCategoryById(categoryId: Long): Category {
         return allCategories.firstOrNull {it.id == categoryId}
+            ?: allCategories.first()
+    }
+
+    fun getCategoryByType(categoryType:CategoryType): Category{
+        return allCategories.firstOrNull {it.category == categoryType}
             ?: allCategories.first()
     }
 

@@ -5,6 +5,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.city.data.Category
 import com.example.city.data.CategoryType
 import com.example.city.data.Recommendation
 import com.example.city.ui.utils.ContentType
@@ -35,7 +36,7 @@ fun CityApp(
     CityHomeScreen(
         contentType = contentType,
         cityUiState = cityUiState,
-        onCategoryPressed = { category: CategoryType ->
+        onCategoryPressed = { category: Category ->
             viewModel.updateCurrentCategory(categoryType = category)
 
         },
