@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">Mi Ciudad</string>
+    <string name="app_name_chain">Mi Ciudad %1$s %2$s %3$s</string>
 
     <string name="banks">Bancos</string>
     <string name="coffes">Cafés</string>

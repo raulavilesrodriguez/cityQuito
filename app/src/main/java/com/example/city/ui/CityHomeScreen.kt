@@ -27,5 +27,11 @@ fun CityHomeScreen(
             onDetailScreenBackPressed = onDetailScreenBackPressed,
             onRecommendationsBackPressed = onRecommendationsBackPressed,
         )
+    } else {
+        CityFullContent(
+            cityUiState = cityUiState,
+            onCategoryPressed = onCategoryPressed,
+            onRecommendationPressed = onRecommendationPressed,
+        )
     }
 }
