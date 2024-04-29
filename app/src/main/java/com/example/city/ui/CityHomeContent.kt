@@ -77,7 +77,8 @@ fun CategoryListOnlyContent(
                     .padding(
                         top = dimensionResource(id = R.dimen.padding_medium),
                         start = dimensionResource(id = R.dimen.padding_medium),
-                        end = dimensionResource(id = R.dimen.padding_medium)
+                        end = dimensionResource(id = R.dimen.padding_medium),
+                        bottom = dimensionResource(id = R.dimen.padding_medium)
                     )
             )
         } else if(cityUiState.isShowingRecommendations){
@@ -86,15 +87,30 @@ fun CategoryListOnlyContent(
                 onClick = {
                           onRecommendationPressed(it)
                 },
-                contentPadding = innerPadding
+                contentPadding = innerPadding,
+                modifier = modifier
+                    .fillMaxWidth()
+                    .padding(
+                        top = dimensionResource(id = R.dimen.padding_medium),
+                        start = dimensionResource(id = R.dimen.padding_medium),
+                        end = dimensionResource(id = R.dimen.padding_medium),
+                        bottom = dimensionResource(id = R.dimen.padding_medium)
+                    )
             )
         } else {
             RecommendationDetail(
                 selectedRecommendation = cityUiState.currentRecommendation,
                 contentPadding = innerPadding,
                 onBackPressed = {
-                    onDetailScreenBackPressed
-                }
+                    onDetailScreenBackPressed()
+                },
+                modifier = modifier
+                    .padding(
+                        top = dimensionResource(id = R.dimen.padding_medium),
+                        start = dimensionResource(id = R.dimen.padding_medium),
+                        end = dimensionResource(id = R.dimen.padding_medium),
+                        bottom = dimensionResource(id = R.dimen.padding_medium)
+                    )
             )
         }
     }
@@ -220,23 +236,20 @@ private fun RecommendationDetail(
         ) {
             Box(
                 modifier = modifier
-                    .weight(1f)
                     .fillMaxWidth()
             ){
                 Image(
                     painter = painterResource(id = selectedRecommendation.imageResourceId),
                     contentDescription = null,
-                    alignment = Alignment.Center,
+                    alignment = Alignment.TopCenter,
                     contentScale = ContentScale.FillWidth,
-                    modifier = Modifier
-                        .height(dimensionResource(id = R.dimen.image_detail))
-                        .align(Alignment.Center),
+
                 )
             }
+
             Text(
                 text = stringResource(id = selectedRecommendation.recommendationDescription),
                 style = MaterialTheme.typography.bodyMedium,
-                color = MaterialTheme.colorScheme.inverseOnSurface,
                 modifier = Modifier.padding(
                     vertical = dimensionResource(R.dimen.padding_detail_content_vertical),
                     horizontal = dimensionResource(R.dimen.padding_detail_content_horizontal)

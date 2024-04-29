@@ -33,6 +33,8 @@ class CityViewModel : ViewModel() {
         _uiState.update {
             it.copy(
                 currentCategory = categoryType.category,
+                isShowingHomepage = false,
+                isShowingRecommendations = true
             )
         }
     }
