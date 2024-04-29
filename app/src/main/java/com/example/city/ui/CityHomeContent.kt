@@ -1,12 +1,20 @@
 package com.example.city.ui
 
+import androidx.activity.compose.BackHandler
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.calculateEndPadding
+import androidx.compose.foundation.layout.calculateStartPadding
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -19,8 +27,13 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.modifier.modifierLocalConsumer
+import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.res.dimensionResource
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -28,6 +41,7 @@ import com.example.city.data.Category
 import com.example.city.data.CategoryType
 import com.example.city.R
 import com.example.city.data.LocalCategoryDataProvider
+import com.example.city.data.LocalRecommendationData
 import com.example.city.data.Recommendation
 import com.example.city.ui.components.CategoryListItem
 import com.example.city.ui.components.RecommendationListItem
@@ -73,6 +87,14 @@ fun CategoryListOnlyContent(
                           onRecommendationPressed(it)
                 },
                 contentPadding = innerPadding
+            )
+        } else {
+            RecommendationDetail(
+                selectedRecommendation = cityUiState.currentRecommendation,
+                contentPadding = innerPadding,
+                onBackPressed = {
+                    onDetailScreenBackPressed
+                }
             )
         }
     }
@@ -171,6 +193,59 @@ fun RecommendationsList(
     }
 }
 
+@Composable
+private fun RecommendationDetail(
+    selectedRecommendation: Recommendation,
+    contentPadding: PaddingValues,
+    onBackPressed: () -> Unit,
+    modifier: Modifier = Modifier,
+){
+    BackHandler {
+        onBackPressed()
+    }
+    val scrollState = rememberScrollState()
+    val layoutDirection = LocalLayoutDirection.current
+    Box(
+        modifier = modifier
+            .verticalScroll(state = scrollState)
+            .padding(top = contentPadding.calculateTopPadding())
+    ){
+        Column(
+            modifier = Modifier
+                .padding(
+                    bottom = contentPadding.calculateTopPadding(),
+                    start = contentPadding.calculateStartPadding(layoutDirection),
+                    end = contentPadding.calculateEndPadding(layoutDirection)
+                )
+        ) {
+            Box(
+                modifier = modifier
+                    .weight(1f)
+                    .fillMaxWidth()
+            ){
+                Image(
+                    painter = painterResource(id = selectedRecommendation.imageResourceId),
+                    contentDescription = null,
+                    alignment = Alignment.Center,
+                    contentScale = ContentScale.FillWidth,
+                    modifier = Modifier
+                        .height(dimensionResource(id = R.dimen.image_detail))
+                        .align(Alignment.Center),
+                )
+            }
+            Text(
+                text = stringResource(id = selectedRecommendation.recommendationDescription),
+                style = MaterialTheme.typography.bodyMedium,
+                color = MaterialTheme.colorScheme.inverseOnSurface,
+                modifier = Modifier.padding(
+                    vertical = dimensionResource(R.dimen.padding_detail_content_vertical),
+                    horizontal = dimensionResource(R.dimen.padding_detail_content_horizontal)
+                )
+            )
+        }
+    }
+}
+
 @Preview
 @Composable
 fun CategoryListPreview(){
@@ -179,6 +254,20 @@ fun CategoryListPreview(){
             CategoryList(
                 categories = LocalCategoryDataProvider.allCategories,
                 onClick = {},
+            )
+        }
+    }
+}
+
+@Preview
+@Composable
+fun RecommendationDetailPreview(){
+    CityTheme {
+        Surface {
+            RecommendationDetail(
+                selectedRecommendation = LocalRecommendationData.defaultRecommendation,
+                contentPadding = PaddingValues(0.dp),
+                onBackPressed = {},
             )
         }
     }
