@@ -113,7 +113,8 @@ fun CityAppBar(
                      stringResource(id = LocalCategoryDataProvider.getCategoryByType(cityUiState.currentCategory).categoryName)
                  } else {
                      stringResource(id = R.string.app_name)
-                 }
+                 },
+             color = MaterialTheme.colorScheme.onPrimary
          )
         },
         navigationIcon =
@@ -122,7 +123,8 @@ fun CityAppBar(
                 IconButton(onClick = onDetailScreenBackPressed ) {
                     Icon(
                         imageVector = Icons.Filled.ArrowBack, 
-                        contentDescription = stringResource(id = R.string.back_button)
+                        contentDescription = stringResource(id = R.string.back_button),
+                        tint = MaterialTheme.colorScheme.onPrimary
                     )
                 }
             }
@@ -131,7 +133,8 @@ fun CityAppBar(
                 IconButton(onClick = onRecommendationsBackPressed ) {
                     Icon(
                         imageVector = Icons.Filled.ArrowBack,
-                        contentDescription = stringResource(id = R.string.back_button)
+                        contentDescription = stringResource(id = R.string.back_button),
+                        tint = MaterialTheme.colorScheme.onPrimary
                     )
                 }
             }

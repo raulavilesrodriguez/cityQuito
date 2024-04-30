@@ -55,7 +55,8 @@ fun CityAppBarFull(
     TopAppBar(
         title = {
             Text(
-                text = stringResource(id = R.string.app_name)
+                text = stringResource(id = R.string.app_name),
+                color = MaterialTheme.colorScheme.onPrimary
             )
                 },
         colors = TopAppBarDefaults.topAppBarColors(
