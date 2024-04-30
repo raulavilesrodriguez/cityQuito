@@ -38,6 +38,7 @@ fun CityApp(
         cityUiState = cityUiState,
         onCategoryPressed = { category: Category ->
             viewModel.updateCurrentCategory(categoryType = category)
+            viewModel.resetRecommendationScreenStates()
 
         },
         onRecommendationPressed = { recommendation: Recommendation ->

@@ -54,10 +54,7 @@ fun RecommendationDetail(
                     end = contentPadding.calculateEndPadding(layoutDirection)
                 )
         ) {
-            Box(
-                modifier = modifier
-                    .fillMaxWidth()
-            ){
+            Box {
                 Image(
                     painter = painterResource(id = selectedRecommendation.imageResourceId),
                     contentDescription = null,
